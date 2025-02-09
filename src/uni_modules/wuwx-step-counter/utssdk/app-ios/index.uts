@@ -1,0 +1,48 @@
+import { CMStepCounter } from 'CoreMotion';
+import { NSError, OperationQueue } from 'Foundation';
+
+type StartStepCountingUpdatesOptions = {
+	stepCounts: Int | null;
+	handler: (numberOfSteps : Int, timestamp : Date, error : NSError | null) => void;
+}
+
+type QueryStepCountStartingOptions = {
+	start: Date | null,
+	end: Date | null,
+	handler: (numberOfSteps : Int, error : NSError | null) => void
+}
+
+let stepCounter = new CMStepCounter()
+
+export function startStepCountingUpdates(options: StartStepCountingUpdatesOptions) {
+	if (options.stepCounts == null) {
+		options.stepCounts = 1
+	}
+	
+	stepCounter.startStepCountingUpdates(to = OperationQueue.main, updateOn = options.stepCounts!, withHandler = options.handler)
+}
+
+export function stopStepCountingUpdates() {
+	stepCounter.stopStepCountingUpdates()
+}
+
+export function queryStepCountStarting(options: QueryStepCountStartingOptions) {
+	if (options.start == null) {
+		let start = new Date()
+		start.setHours(0)
+		start.setMinutes(0)
+		start.setSeconds(0)
+		start.setMilliseconds(0)
+		options.start = start
+	}
+
+	if (options.end == null) {
+		options.end = new Date()
+	}
+
+	stepCounter.queryStepCountStarting(from = options.start!, to = options.end!, to = OperationQueue.main, withHandler = options.handler)
+}
+
+export function isStepCountingAvailable() {
+	CMStepCounter.isStepCountingAvailable()
+}
