@@ -1,0 +1,9 @@
+{
+    "name": "ios_step_counter",
+    "version": "1.0.0",
+    "description": "iOS 计步插件",
+    "ios": {
+      "class": "StepCounter"
+    }
+  }
+  

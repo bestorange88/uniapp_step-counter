@@ -1,0 +1,51 @@
+{
+    "pages": [
+      { "path": "pages/welcome/Welcome", "style": { "navigationBarTitleText": "欢迎" } },
+      { "path": "pages/welcome/Login", "style": { "navigationBarTitleText": "登录" } },
+      { "path": "pages/welcome/Signup", "style": { "navigationBarTitleText": "注册" } },
+      { "path": "pages/welcome/Forgot", "style": { "navigationBarTitleText": "忘记密码" } },
+      { "path": "pages/welcome/About", "style": { "navigationBarTitleText": "关于我们" } },
+  
+      { "path": "pages/home/Home", "style": { "navigationBarTitleText": "首页" } },
+  
+      { "path": "pages/account/Account", "style": { "navigationBarTitleText": "我的账户" } },
+      { "path": "pages/account/Authen", "style": { "navigationBarTitleText": "实名认证" } },
+      { "path": "pages/account/Profile", "style": { "navigationBarTitleText": "个人资料" } },
+      { "path": "pages/account/Record", "style": { "navigationBarTitleText": "交易记录" } },
+      { "path": "pages/account/Withdrawal", "style": { "navigationBarTitleText": "提现" } },
+      { "path": "pages/account/WithdrawalRecord", "style": { "navigationBarTitleText": "提现记录" } },
+  
+      { "path": "pages/teams/Team", "style": { "navigationBarTitleText": "团队" } },
+      { "path": "pages/teams/MyTeam", "style": { "navigationBarTitleText": "我的团队" } },
+      { "path": "pages/teams/CreateTeam", "style": { "navigationBarTitleText": "创建团队" } },
+      { "path": "pages/teams/SearchTeam", "style": { "navigationBarTitleText": "搜索团队" } },
+      { "path": "pages/teams/Inviter", "style": { "navigationBarTitleText": "邀请好友" } },
+  
+      { "path": "pages/event/Lottery", "style": { "navigationBarTitleText": "抽奖专区" } },
+      { "path": "pages/event/Scratch", "style": { "navigationBarTitleText": "刮刮乐" } },
+      { "path": "pages/event/Turntable", "style": { "navigationBarTitleText": "幸运转盘" } },
+  
+      { "path": "pages/transfer/Transfer", "style": { "navigationBarTitleText": "内部转账" } },
+  
+      { "path": "pages/help/Help", "style": { "navigationBarTitleText": "帮助中心" } }
+    ],
+    "tabBar": {
+      "color": "#333333",
+      "selectedColor": "#008C8C",
+      "backgroundColor": "#ffffff",
+      "borderStyle": "black",
+      "list": [
+        { "pagePath": "pages/home/Home", "text": "首页", "iconPath": "/static/img/home.png", "selectedIconPath": "/static/img/home_active.png" },
+        { "pagePath": "pages/teams/Team", "text": "团队", "iconPath": "/static/img/team.png", "selectedIconPath": "/static/img/team_active.png" },
+        { "pagePath": "pages/account/Account", "text": "我的", "iconPath": "/static/img/my.png", "selectedIconPath": "/static/img/my_active.png" }
+      ]
+    },
+    "globalStyle": {
+      "navigationBarBackgroundColor": "#008C8C",
+      "navigationBarTextStyle": "white",
+      "navigationBarTitleText": "绿步盈途",
+      "backgroundColor": "#F8F8F8",
+      "backgroundTextStyle": "dark"
+    }
+  }
+  

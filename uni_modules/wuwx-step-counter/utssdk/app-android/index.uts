@@ -1,0 +1,58 @@
+import Context from "android.content.Context";
+import SensorEventListener from 'android.hardware.SensorEventListener';
+import SensorEvent from 'android.hardware.SensorEvent';
+import Sensor from 'android.hardware.Sensor';
+import UTSAndroid from 'io.dcloud.uts.UTSAndroid';
+import SensorManager from 'android.hardware.SensorManager';
+
+type StartStepCountingUpdatesOptions = {
+	stepCounts: Int | null;
+	handler: (numberOfSteps : Float, timestamp : Date, error : any) => void;
+}
+
+type QueryStepCountStartingOptions = {
+	start: Date | null,
+	end: Date | null,
+	handler: (numberOfSteps : Int, error : any) => void
+}
+
+let successHandler = (numberOfSteps : Float, timestamp : Date, error : any) => {
+
+};
+
+class StepCounterSensorEventListener implements SensorEventListener {
+
+	override onSensorChanged(event : SensorEvent) : void {
+		successHandler(event.values[0], new Date(), "")
+	}
+
+	override onAccuracyChanged(sensor : Sensor, param1 : Int) : void {
+
+	}
+}
+
+export function startStepCountingUpdates(options: StartStepCountingUpdatesOptions) {
+
+	let stepCounterSensorEventListener = new StepCounterSensorEventListener();
+	successHandler = options.handler;
+
+	const context = UTSAndroid.getAppContext();
+	if (context != null) {
+		const sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+		sensorManager.unregisterListener(stepCounterSensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER))
+		sensorManager.registerListener(stepCounterSensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER), SensorManager.SENSOR_DELAY_NORMAL)
+	}
+}
+
+export function stopStepCountingUpdates() {
+	
+}
+
+export function queryStepCountStarting(options: QueryStepCountStartingOptions) {
+
+}
+
+export function isStepCountingAvailable() {
+
+}
